@@ -25,7 +25,7 @@ const songs = [
         artist: "Jacinto Design"
     },
     {
-        name: "jacinto-4",
+        name: "metric-1",
         displayName: "Front Row (Remix)",
         artist: "Metric / Jacinto Design"
     },
@@ -56,3 +56,16 @@ pauseSong = () => {
 
 // play or pause event listener
 playBtn.addEventListener("click", () => isPlaying ? pauseSong() : playSong())
+
+
+// update dom
+loadSong = (song) => {
+    title.textContent = song.displayName
+    artist.textContent = song.artist
+    music.src = `music/${song.name}.mp3`
+    image.src = `img/${song.name}.jpg`
+}
+
+
+// on load, select first song.
+loadSong(songs[3])
