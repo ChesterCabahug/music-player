@@ -66,6 +66,32 @@ loadSong = (song) => {
     image.src = `img/${song.name}.jpg`
 }
 
+// current song
+let songIndex = 0
+
+// next song function
+prevSong = () => {
+    songIndex--
+    if (songIndex < 0) {
+        songIndex = songs.length - 1
+    }
+    loadSong(songs[songIndex])
+    playSong()
+}
+// next song function
+nextSong = () => {
+    songIndex++
+    if (songIndex > songs.length - 1) {
+        songIndex = 0
+    }
+    loadSong(songs[songIndex])
+    playSong()
+}
 
 // on load, select first song.
-loadSong(songs[3])
+loadSong(songs[songIndex])
+
+
+// event listeners 
+prevBtn.addEventListener("click", prevSong)
+nextBtn.addEventListener("click", nextSong)
